@@ -1,0 +1,34 @@
+:root {
+    --offcanvas-width : 250px;
+    --navbar-height : 56px;
+}
+
+.sidebar-nav {
+    width : var(--offcanvas-width) !important;
+    height: calc(100% - var(--navbar-height)) !important;
+    top : var(--navbar-height) !important;
+    display : block !important;
+}
+
+.hover-shadow :hover{
+    box-shadow :  0 0.5rem 1rem rgba(0,0,0,0.1) !important;
+    transition : all 0.3s ease-in-out !important;
+    transform: scale(1.02);
+}
+
+@media (min-width : 996px){
+    .sidebar-nav{
+        /* position: fixed !important; */
+        transform: none !important;
+        visibility: visible !important;
+        border-right: 1px solid #dee2e6;
+        top : var(--navbar-height) !important;
+        height: calc(100% - var(--navbar-height)) !important;
+
+    }
+
+    main{
+        margin-left : calc( 25px + var(--offcanvas-width)) !important;
+    }
+} 
+

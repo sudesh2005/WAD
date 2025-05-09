@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+        #header {
+            font-size: 30px;
+            text-align: center;
+            
+            
+        }
+        
+        .heading{
+            position: sticky;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+
+        }
+
+        .product-items img {
+            max-width: 60%;
+            margin: auto;
+
+
+
+        }
+
+        .product-items {
+            text-align: center;
+
+        }
+
+        .product-items button {
+            width: 70%;
+            margin: auto;
+        }
+
+        .footer {
+            text-align: center;
+        }
+
+        .cartbtn {
+            background-color: #ff0066 !important;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 0.9em;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 80%;
+            margin: 0 auto;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .cartbtn:hover {
+            background-color: #cc0052 !important;
+            /* Darker pink */
+        }
+
+        .ui-btn {
+            background-color: #007bff !important;
+            /* Bootstrap blue */
+            color: white !important;
+            border: none !important;
+            border-radius: 5px !important;
+            transition: background-color 0.3s ease;
+        }
+
+        .ui-btn:hover {
+            background-color: #0056b3 !important;
+        }
+
+        @media(max-width : 900px) {
+            .product-list {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width : 600px) {
+            .product-list {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div data-role='page'>
+        <div data-role='header' id='header'>
+            
+
+            <div class="heading">
+                <img src="https://cdn-icons-png.flaticon.com/128/11545/11545770.png" alt="logo" width='30px' height="30px"
+                style="margin-top : 15px">
+            E-commerce
+            </div>
+
+
+            <div style="margin-left: 90%;" class="heading">
+                <!-- <button onclick="#cart">Go to Cart</button> -->
+                 <a href="cart.html" class="ui-btn">Cart</a>
+            </div>
+        </div>
+
+      
+
+        <div data-role='content' id="products">
+            <div class='product-list' data-role="list-view">
+
+                <div class="product-items">
+                    <img src="https://assets.ajio.com/medias/sys_master/root/20201006/Zqxk/5f7b7531f997dd8c835866c2/-473Wx593H-460624519-black-MODEL.jpg"
+                        alt="shoe 1">
+                    <p>shoe</p>
+                    <h4>$30.00</h4>
+                    <button data-role="button" onclick="updateCart( 'shoes' , 30)">Add to Cart</button>
+                </div>
+
+                <div class="product-items">
+                    <img src="https://assets.ajio.com/medias/sys_master/root/20201006/Zqxk/5f7b7531f997dd8c835866c2/-473Wx593H-460624519-black-MODEL.jpg"
+                        alt="shoe 1">
+                    <p>Nike </p>
+                    <h4>$40.00</h4>
+                    <button class="ui-btn" onclick="updateCart('nike' , 40)">Add to Cart</button>
+                </div>
+
+                <div class="product-items">
+                    <img src="https://assets.ajio.com/medias/sys_master/root/20201006/Zqxk/5f7b7531f997dd8c835866c2/-473Wx593H-460624519-black-MODEL.jpg"
+                        alt="shoe 1">
+                    <p>Puma</p>
+                    <h4>$25.00</h4>
+                    <button class="ui-btn" onclick="updateCart('puma' , 25)">Add to Cart</button>
+                </div>
+
+                <div class="product-items">
+                    <img src="https://assets.ajio.com/medias/sys_master/root/20201006/Zqxk/5f7b7531f997dd8c835866c2/-473Wx593H-460624519-black-MODEL.jpg"
+                        alt="shoe 1">
+                    <p>Reebok</p>
+                    <h4>$30.00</h4>
+                    <button class="ui-btn" onclick="updateCart('reebok' , 30)">Add to Cart</button>
+                </div>
+
+                <div class="product-items">
+                    <img src="https://assets.ajio.com/medias/sys_master/root/20201006/Zqxk/5f7b7531f997dd8c835866c2/-473Wx593H-460624519-black-MODEL.jpg"
+                        alt="shoe 1">
+                    <p>bata</p>
+                    <h4>$10.00</h4>
+                    <button class="ui-btn" onclick="updateCart('bata' , 10)">Add to Cart</button>
+                </div>
+
+                <div class="product-items">
+                    <img src="https://assets.ajio.com/medias/sys_master/root/20201006/Zqxk/5f7b7531f997dd8c835866c2/-473Wx593H-460624519-black-MODEL.jpg"
+                        alt="shoe 1">
+                    <p>Paragon</p>
+                    <h4>$5.00</h4>
+                    <button class="ui-btn" onclick="updateCart('paragon' ,5)">Add to Cart</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div data-role="content" id="cart">
+            Hello
+        </div>
+
+
+
+        <div data-role="footer" data-role="list-view" class="footer">
+            More Info
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#AboutUs">About Us</a></li>
+                <li><a href="ContactUs"> Contact Us</a></li>
+
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function updateCart(name , price){
+            let cart = JSON.parse(localStorage.getItem('cart')) || []
+            
+            const existingProduct = cart.find(item => item.name === name);
+            if(existingProduct){
+                existingProduct.quantity++;
+            }
+            else{
+                cart.push({name , price , quantity : 1});
+            }
+
+            localStorage.setItem('cart' , JSON.stringify(cart));
+            
+            alert(`${name} added to cart!`);
+        }
+
+    </script>
+
+    <!-- <script>
+        $(document).ready(function () {
+            let cart = [];
+    
+            function updateCart() {
+                // Get the clicked product details
+                const productElement = $(event.target).closest('.product-items');
+                const name = productElement.find('p').text();
+                const priceText = productElement.find('h4').text().replace('$', '');
+                const price = parseFloat(priceText);
+                const image = productElement.find('img').attr('src');
+    
+                // Add to cart
+                cart.push({ name, price, image });
+                renderCart();
+            }
+    
+            window.updateCart = updateCart; // Make globally accessible for inline onclick
+    
+            function renderCart() {
+                $("#cart").empty();
+                let total = 0;
+    
+                if (cart.length === 0) {
+                    $("#cart").html("<p>Your cart is empty.</p>");
+                    return;
+                }
+    
+                cart.forEach((item, index) => {
+                    total += item.price;
+                    $("#cart").append(`
+                        <div class="ui-body ui-body-b ui-corner-all ui-shadow" style="margin-bottom:10px; padding:10px;">
+                            <img src="${item.image}" style="width:50px; height:auto; vertical-align:middle; margin-right:10px;">
+                            <strong>${item.name}</strong> - ₹${item.price.toFixed(2)}
+                            <a href="#" class="ui-btn ui-btn-inline ui-mini ui-btn-b" onclick="removeFromCart(${index})">Remove</a>
+                        </div>
+                    `);
+                });
+    
+                $("#cart").append(`
+                    <h4 style="text-align:center;">Total: ₹${total.toFixed(2)}</h4>
+                    <a href="#" class="ui-btn ui-btn-inline ui-mini ui-btn-b" onclick="clearCart()">Clear Cart</a>
+                `);
+            }
+    
+            window.removeFromCart = function (index) {
+                cart.splice(index, 1);
+                renderCart();
+            };
+    
+            window.clearCart = function () {
+                cart = [];
+                renderCart();
+            };
+        });
+    </script> -->
+    
+
+</body>
+
+</html>

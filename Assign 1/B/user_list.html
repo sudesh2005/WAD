@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User list</title>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="user_list.css"> 
+</head>
+<body>
+    <div class="container">
+        <button onclick="clearUsers()">Clear Users</button>
+        <table id="user-table">
+            <thead>
+                <tr>
+                    <th>UserName</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                </tr>
+            </thead>
+            <tbody id="user-list">
+                <!-- User data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+
+        let tableBody = document.getElementById("user-list");
+        users.forEach(user => {
+            let row = `<tr>
+                <td>${user.username}</td>
+                <td>${user.email}</td>
+                <td>${user.password}</td>
+            </tr>`;
+            tableBody.innerHTML += row;
+        });
+
+        function clearUsers() {
+            localStorage.removeItem("users");
+            tableBody.innerHTML = "";
+        }
+    </script>
+</body>
+</html>

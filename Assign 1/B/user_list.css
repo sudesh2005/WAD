@@ -1,0 +1,34 @@
+ .container{
+    /* display  : flex;
+    justify-content : center;
+    align-items : center;
+    height : 100vh;
+    box-shadow : 0px 0px 10px rgba(0,0,0,0.1); */
+
+}
+
+#user-table{
+    justify-content: center;
+    display : flexbox;
+    width : 60%;
+    margin : 100px auto;
+    border: 1px solid #161616;
+    box-shadow : 0px 0px 10px rgba(0,0,0,0.1);
+
+}
+
+th , td , tr{
+    padding : 20px;
+    border : 1px solid #161616;
+    border-collapse: collapse;
+
+    box-shadow : 0px 0px 10px rgba(0,0,0,0.12);
+
+    /* border : 1px solid #161616; */
+}
+
+table {
+    /* border : 1px solid #161616; */
+    border-collapse: collapse;
+} 
+

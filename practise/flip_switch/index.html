@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback Form</title>
+  
+  <!-- jQuery & jQuery Mobile -->
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+  <style>
+    .ui-content label {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Feedback Page -->
+<div data-role="page" id="feedbackPage" data-theme="b">
+  <div data-role="header">
+    <h1>Feedback Form</h1>
+  </div>
+
+  <div data-role="content">
+    <form id="feedbackForm">
+
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name">
+
+      <label for="feedback">Your Feedback:</label>
+      <textarea name="feedback" id="feedback"></textarea>
+
+      <!-- ✅ Toggle switches using slider -->
+      <label for="recommend">Would you recommend us?</label>
+      <select name="recommend" id="recommend" data-role="slider" data-theme="b">
+        <option value="no" selected>No</option>
+        <option value="yes">Yes</option>
+      </select>
+
+      <label for="helpful">Was the session helpful?</label>
+      <select name="helpful" id="helpful" data-role="slider" data-theme="b">
+        <option value="no" selected>No</option>
+        <option value="yes">Yes</option>
+      </select>
+
+      <label for="contentClear">Was the content clear?</label>
+      <select name="contentClear" id="contentClear" data-role="slider" data-theme="b">
+        <option value="no" selected>No</option>
+        <option value="yes">Yes</option>
+      </select>
+
+      <input type="submit" value="Submit" data-theme="b">
+    </form>
+  </div>
+</div>
+
+<script>
+  $(document).on("pagecreate", "#feedbackPage", function () {
+    $("#feedbackForm").on("submit", function (e) {
+      e.preventDefault();
+
+      const data = {
+        name: $("#name").val(),
+        feedback: $("#feedback").val(),
+        recommend: $("#recommend").val(),
+        helpful: $("#helpful").val(),
+        contentClear: $("#contentClear").val()
+      };
+
+      console.log("Submitted Feedback:", data);
+      alert("Thank you for your feedback!");
+
+      // Optional: Reset form
+      $(this)[0].reset();
+      $("select").slider("refresh");
+    });
+  });
+</script>
+
+</body>
+</html>
